@@ -3,23 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bruno Fernandes | Software Engineer | Portfolio</title>
+
+    <title>Bruno Fernandes | Data Engineer | Python & AWS</title>
+    <meta name="description" content="Bruno Fernandes — Data Engineer focused on Python, SQL, PySpark, Airflow, Databricks and AWS.">
+
     <link rel="icon" href="assets/favicon-32x32.png" type="image/png">
+
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#DC2626",
+                        secondary: "#991B1B",
+                        accent: "#EF4444",
+                        dark: {
+                            bg: "#0F0F0F",
+                            card: "#1A1A1A",
+                            hover: "#262626",
+                        },
+                    },
+                    animation: {
+                        "fade-in-left": "fadeInLeft 0.6s ease-out",
+                        "fade-in-right": "fadeInRight 0.6s ease-out",
+                        float: "float 3s ease-in-out infinite",
+                        glow: "glow 2s ease-in-out infinite alternate",
+                    },
+                    keyframes: {
+                        fadeInLeft: {
+                            "0%": { opacity: "0", transform: "translateX(-20px)" },
+                            "100%": { opacity: "1", transform: "translateX(0)" },
+                        },
+                        fadeInRight: {
+                            "0%": { opacity: "0", transform: "translateX(20px)" },
+                            "100%": { opacity: "1", transform: "translateX(0)" },
+                        },
+                        float: {
+                            "0%, 100%": { transform: "translateY(0)" },
+                            "50%": { transform: "translateY(-20px)" },
+                        },
+                        glow: {
+                            "0%": { boxShadow: "0 0 5px rgba(220, 38, 38, 0.5)" },
+                            "100%": { boxShadow: "0 0 20px rgba(220, 38, 38, 0.8)" },
+                        },
+                    },
+                },
+            },
+        };
+    </script>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
-
 </head>
+
 <body class="bg-gray-50 dark:bg-dark-bg text-gray-900 dark:text-gray-100 transition-colors duration-300">
-    
+
     <!-- Theme Toggle -->
-    <button id="theme-toggle" class="fixed top-6 right-6 z-50 p-3 rounded-full glass hover:scale-110 transition-all duration-300 animate-glow">
+    <button id="theme-toggle" aria-label="Toggle theme"
+        class="fixed top-6 right-6 z-50 p-3 rounded-full glass hover:scale-110 transition-all duration-300 animate-glow">
         <i class="fas fa-moon text-xl text-primary dark:hidden"></i>
         <i class="fas fa-sun text-xl text-accent hidden dark:block"></i>
     </button>
 
     <!-- Scroll Indicator -->
-    <div class="scroll-indicator hidden lg:block">
+    <div class="scroll-indicator hidden lg:block" aria-hidden="true">
         <div class="scroll-dot active" data-section="hero"></div>
         <div class="scroll-dot" data-section="experience"></div>
         <div class="scroll-dot" data-section="skills"></div>
@@ -27,9 +75,8 @@
         <div class="scroll-dot" data-section="contact"></div>
     </div>
 
-    <!-- Hero Section -->
+    <!-- HERO -->
     <section id="hero" class="min-h-screen flex items-center justify-center relative overflow-hidden px-4 py-20">
-        <!-- Animated Background -->
         <div class="absolute inset-0 overflow-hidden">
             <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-float"></div>
             <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-float" style="animation-delay: 1s;"></div>
@@ -37,12 +84,11 @@
 
         <div class="container mx-auto max-w-7xl relative z-10">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
-                
-                <!-- Left Content -->
+
                 <div class="space-y-8 animate-fade-in-left">
                     <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-primary/10 border border-primary/20">
-                        <i class="fas fa-code text-primary"></i>
-                        <span class="text-sm font-medium">Software Engineer</span>
+                        <i class="fas fa-database text-primary"></i>
+                        <span class="text-sm font-medium">Data Engineer</span>
                     </div>
 
                     <div>
@@ -50,29 +96,35 @@
                             Bruno Alexssander
                             <span class="block gradient-text">Fernandes</span>
                         </h1>
-                        <p class="text-xl md:text-2xl text-gray-600 dark:text-gray-400 font-medium">Software and Data Engineer</p>
-                        <p class="text-lg text-gray-500 dark:text-gray-500 mt-2">Java | Python | AWS | Data Engineer</p>
+                        <p class="text-xl md:text-2xl text-gray-600 dark:text-gray-400 font-medium">
+                            Data Engineer | Python & AWS
+                        </p>
+                        <p class="text-lg text-gray-500 dark:text-gray-500 mt-2">
+                            Python • SQL • PySpark • Airflow • Databricks
+                        </p>
                     </div>
 
                     <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-xl">
-                        Software Engineer with a strong background in Data Engineering and Cloud Infrastructure. Over the past years, I've worked on building scalable data pipelines, high-quality backend services, and cloud-native architectures that power critical business operations.
+                        Data Engineer focused on building scalable data pipelines, cloud data platforms,
+                        orchestration and reliable data workflows using Python, SQL, PySpark and AWS.
                     </p>
 
                     <div class="flex flex-wrap gap-4">
-                        <a href="#contact" class="group px-8 py-4 bg-primary text-white rounded-xl font-semibold hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center gap-2">
+                        <a href="#contact"
+                            class="group px-8 py-4 bg-primary text-white rounded-xl font-semibold hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center gap-2">
                             <i class="fas fa-paper-plane group-hover:translate-x-1 transition-transform"></i>
                             <span>Get in Touch</span>
                         </a>
-                        <a href="#experience" class="px-8 py-4 border-2 border-primary text-primary rounded-xl font-semibold hover:bg-primary/10 transition-all duration-300 flex items-center gap-2">
+                        <a href="#experience"
+                            class="px-8 py-4 border-2 border-primary text-primary rounded-xl font-semibold hover:bg-primary/10 transition-all duration-300 flex items-center gap-2">
                             <i class="fas fa-briefcase"></i>
                             <span>View Experience</span>
                         </a>
                     </div>
 
-                    <!-- Quick Stats -->
                     <div class="grid grid-cols-3 gap-4 pt-8">
                         <div class="text-center">
-                            <div class="text-3xl font-bold text-primary">5+</div>
+                            <div class="text-3xl font-bold text-primary">6+</div>
                             <div class="text-sm text-gray-600 dark:text-gray-400">Years Python</div>
                         </div>
                         <div class="text-center">
@@ -81,37 +133,38 @@
                         </div>
                         <div class="text-center">
                             <div class="text-3xl font-bold text-primary">AWS</div>
-                            <div class="text-sm text-gray-600 dark:text-gray-400">Cloud Expert</div>
+                            <div class="text-sm text-gray-600 dark:text-gray-400">Cloud</div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Right Content - Tech Cards -->
                 <div class="space-y-6 animate-fade-in-right">
                     <div class="grid grid-cols-2 gap-4">
                         <div class="glass rounded-2xl p-6 card-hover">
-                            <i class="fab fa-java text-4xl text-primary mb-3"></i>
-                            <h3 class="font-semibold mb-1">Backend</h3>
-                            <p class="text-sm text-gray-600 dark:text-gray-400">Java, Spring Boot, Go</p>
-                        </div>
-                        <div class="glass rounded-2xl p-6 card-hover">
                             <i class="fab fa-python text-4xl text-primary mb-3"></i>
-                            <h3 class="font-semibold mb-1">Data Engineering</h3>
-                            <p class="text-sm text-gray-600 dark:text-gray-400">Python, PySpark, ETL</p>
+                            <h3 class="font-semibold mb-1">Python</h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">Pandas, PySpark, APIs</p>
                         </div>
-                        <div class="glass rounded-2xl p-6 card-hover">
-                            <i class="fab fa-aws text-4xl text-primary mb-3"></i>
-                            <h3 class="font-semibold mb-1">Cloud</h3>
-                            <p class="text-sm text-gray-600 dark:text-gray-400">AWS, Kubernetes, Docker</p>
-                        </div>
+
                         <div class="glass rounded-2xl p-6 card-hover">
                             <i class="fas fa-database text-4xl text-primary mb-3"></i>
-                            <h3 class="font-semibold mb-1">Database</h3>
-                            <p class="text-sm text-gray-600 dark:text-gray-400">PostgreSQL, Redshift, MySQL</p>
+                            <h3 class="font-semibold mb-1">Data Engineering</h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">ETL, Data Lakes, SQL</p>
+                        </div>
+
+                        <div class="glass rounded-2xl p-6 card-hover">
+                            <i class="fab fa-aws text-4xl text-primary mb-3"></i>
+                            <h3 class="font-semibold mb-1">AWS</h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">S3, Glue, EMR, Redshift</p>
+                        </div>
+
+                        <div class="glass rounded-2xl p-6 card-hover">
+                            <i class="fas fa-wind text-4xl text-primary mb-3"></i>
+                            <h3 class="font-semibold mb-1">Orchestration</h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">Airflow & Kubernetes</p>
                         </div>
                     </div>
 
-                    <!-- Code Preview -->
                     <div class="glass rounded-2xl overflow-hidden card-hover">
                         <div class="bg-gray-800 dark:bg-dark-card px-4 py-3 flex items-center gap-3">
                             <div class="flex gap-2">
@@ -121,14 +174,15 @@
                             </div>
                             <span class="text-sm text-gray-400">data_pipeline.py</span>
                         </div>
-                        <div class="bg-gray-900 dark:bg-dark-bg p-6 font-mono text-sm">
-                            <pre><code> <span class="text-purple-400">class</span> <span class="text-green-400">Developer</span>:
-    <span class="text-purple-400">def</span> <span class="text-blue-400">__init__</span>(<span class="text-orange-400">self</span>):
-        <span class="text-orange-400">self</span>.stack = [<span class="text-yellow-300">'Python'</span>, <span class="text-yellow-300">'AWS'</span>, <span class="text-yellow-300">'Java'</span>]
-        <span class="text-orange-400">self</span>.passion = <span class="text-yellow-300">'Find solutions to your problems'</span>
 
-    <span class="text-purple-400">async def</span> <span class="text-blue-400">build_project</span>(<span class="text-orange-400">self</span>, <span class="text-yellow-300">idea</span>):
-        <span class="text-purple-400">return</span> <span class="text-yellow-300">f"Building a project based on the idea: {idea}"</span></code></pre>
+                        <div class="bg-gray-900 dark:bg-dark-bg p-6 font-mono text-sm overflow-x-auto">
+<pre><code><span class="text-purple-400">def</span> <span class="text-blue-400">build_pipeline</span>(<span class="text-orange-400">source</span>):
+    data = extract(source)
+    data = transform(data)
+    data = validate(data)
+    load(data)
+
+    <span class="text-purple-400">return</span> <span class="text-yellow-300">"Reliable data, ready for use."</span></code></pre>
                         </div>
                     </div>
                 </div>
@@ -136,7 +190,7 @@
         </div>
     </section>
 
-    <!-- Experience Section -->
+    <!-- EXPERIENCE -->
     <section id="experience" class="py-20 px-4 bg-white dark:bg-dark-card">
         <div class="container mx-auto max-w-7xl">
             <h2 class="text-4xl md:text-5xl font-bold text-center mb-4">
@@ -145,56 +199,66 @@
             <div class="w-20 h-1 bg-gradient-to-r from-primary to-accent mx-auto mb-16"></div>
 
             <div class="space-y-12">
-                <!-- Serasa Experian - Software Engineer -->
+
+                <!-- Serasa Current -->
                 <div class="glass rounded-3xl p-8 card-hover border-l-4 border-primary">
                     <div class="flex flex-col md:flex-row gap-6">
                         <div class="flex-shrink-0">
                             <div class="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center">
-                                <i class="fas fa-laptop-code text-3xl text-primary"></i>
+                                <i class="fas fa-database text-3xl text-primary"></i>
                             </div>
                         </div>
+
                         <div class="flex-1">
                             <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                                 <div>
                                     <h3 class="text-2xl font-bold mb-2">Software Engineer</h3>
                                     <p class="text-primary font-semibold">Serasa Experian</p>
                                 </div>
-                                <span class="text-gray-600 dark:text-gray-400 text-sm mt-2 md:mt-0">Aug 2025 - Present</span>
+                                <span class="text-gray-600 dark:text-gray-400 text-sm mt-2 md:mt-0">
+                                    Aug 2025 - Present
+                                </span>
                             </div>
+
                             <p class="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
-                                Working on rebuilding Teleport 2.0, modernizing the entire product from Delphi to a modern, scalable, domain-driven architecture using Java 21+ and latest Spring Boot. Developing marketplace-insurance APIs with FastAPI and Go microservices.
+                                Working across insurance and data-oriented products, contributing to backend
+                                services and Python-based solutions. The current environment combines a Java/Spring
+                                Boot insurance platform with Python/FastAPI services, including analytics and
+                                predictive products.
                             </p>
+
                             <div class="grid md:grid-cols-2 gap-4 mb-6">
                                 <div class="flex items-start gap-2 text-sm">
                                     <i class="fas fa-check-circle text-green-500 mt-1"></i>
-                                    <span>Hexagonal Architecture & DDD implementation with Java</span>
+                                    <span>Python and FastAPI development</span>
                                 </div>
                                 <div class="flex items-start gap-2 text-sm">
                                     <i class="fas fa-check-circle text-green-500 mt-1"></i>
-                                    <span>Microservices with Go (Gin) & FastAPI</span>
+                                    <span>Data-oriented analytics and predictive solutions</span>
                                 </div>
                                 <div class="flex items-start gap-2 text-sm">
                                     <i class="fas fa-check-circle text-green-500 mt-1"></i>
-                                    <span>SQS asynchronous communication</span>
+                                    <span>REST APIs and PostgreSQL</span>
                                 </div>
                                 <div class="flex items-start gap-2 text-sm">
                                     <i class="fas fa-check-circle text-green-500 mt-1"></i>
-                                    <span>CI/CD automation with GitLab & Jenkins</span>
+                                    <span>Java, Spring Boot and AWS in the core platform</span>
                                 </div>
                             </div>
+
                             <div class="flex flex-wrap gap-2">
-                                <span class="px-3 py-1 bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-300 rounded-lg text-xs font-medium">Java 21</span>
-                                <span class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-300 rounded-lg text-xs font-medium">Spring Boot</span>
-                                <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-300 rounded-lg text-xs font-medium">FastAPI</span>
-                                <span class="px-3 py-1 bg-cyan-100 dark:bg-cyan-900/30 text-cyan-600 dark:text-cyan-300 rounded-lg text-xs font-medium">Go</span>
-                                <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-300 rounded-lg text-xs font-medium">PostgreSQL</span>
-                                <span class="px-3 py-1 bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-300 rounded-lg text-xs font-medium">Kubernetes</span>
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">FastAPI</span>
+                                <span class="tech-tag">PostgreSQL</span>
+                                <span class="tech-tag">AWS</span>
+                                <span class="tech-tag">Java</span>
+                                <span class="tech-tag">Spring Boot</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Serasa Experian - Data Engineer -->
+                <!-- Serasa Data Engineer -->
                 <div class="glass rounded-3xl p-8 card-hover border-l-4 border-accent">
                     <div class="flex flex-col md:flex-row gap-6">
                         <div class="flex-shrink-0">
@@ -202,64 +266,80 @@
                                 <i class="fas fa-database text-3xl text-accent"></i>
                             </div>
                         </div>
+
                         <div class="flex-1">
                             <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                                 <div>
                                     <h3 class="text-2xl font-bold mb-2">Data Engineer</h3>
                                     <p class="text-accent font-semibold">Serasa Experian</p>
                                 </div>
-                                <span class="text-gray-600 dark:text-gray-400 text-sm mt-2 md:mt-0">Oct 2024 - Aug 2025</span>
+                                <span class="text-gray-600 dark:text-gray-400 text-sm mt-2 md:mt-0">
+                                    Oct 2024 - Aug 2025
+                                </span>
                             </div>
+
                             <p class="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
-                                Scaled and optimized Serasa's data infrastructure to support business-critical operations. Improved Data Lake architecture, enhanced Medallion workflows, and optimized complex queries, reducing processing time and cloud costs significantly.
+                                Worked on business-critical data infrastructure, improving Data Lake workflows,
+                                Medallion Architecture processes and query performance across AWS data services.
                             </p>
+
                             <div class="grid md:grid-cols-2 gap-4 mb-6">
                                 <div class="flex items-start gap-2 text-sm">
                                     <i class="fas fa-check-circle text-green-500 mt-1"></i>
-                                    <span>Data Lake architecture optimization in Databricks jobs</span>
+                                    <span>Data Lake architecture and Databricks workflows</span>
                                 </div>
                                 <div class="flex items-start gap-2 text-sm">
                                     <i class="fas fa-check-circle text-green-500 mt-1"></i>
-                                    <span>Medallion Architecture workflows</span>
+                                    <span>Medallion Architecture</span>
                                 </div>
                                 <div class="flex items-start gap-2 text-sm">
                                     <i class="fas fa-check-circle text-green-500 mt-1"></i>
-                                    <span>Redshift & Glue query optimization</span>
+                                    <span>Redshift and AWS Glue query optimization</span>
                                 </div>
                                 <div class="flex items-start gap-2 text-sm">
                                     <i class="fas fa-check-circle text-green-500 mt-1"></i>
-                                    <span>CI/CD pipeline development</span>
+                                    <span>Python and CI/CD pipelines</span>
                                 </div>
                             </div>
+
                             <div class="flex flex-wrap gap-2">
-                                <span class="px-3 py-1 bg-yellow-100 dark:bg-yellow-900/30 text-yellow-600 dark:text-yellow-300 rounded-lg text-xs font-medium">Python</span>
-                                <span class="px-3 py-1 bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-300 rounded-lg text-xs font-medium">AWS Glue</span>
-                                <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-300 rounded-lg text-xs font-medium">Redshift</span>
-                                <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-300 rounded-lg text-xs font-medium">S3</span>
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Databricks</span>
+                                <span class="tech-tag">AWS Glue</span>
+                                <span class="tech-tag">Redshift</span>
+                                <span class="tech-tag">S3</span>
+                                <span class="tech-tag">SQL</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Blu - Data Engineer - Airflow project-->
+                <!-- Blu Airflow Project -->
                 <div class="glass rounded-3xl p-8 card-hover">
                     <div class="flex flex-col md:flex-row gap-6">
                         <div class="flex-shrink-0">
                             <div class="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center">
-                                <i class="fas fa-code-branch text-3xl text-primary"></i>
+                                <i class="fas fa-wind text-3xl text-primary"></i>
                             </div>
                         </div>
+
                         <div class="flex-1">
                             <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                                 <div>
-                                    <h3 class="text-2xl font-bold mb-2">Project Orchestration with Airflow and Kubernetes - Blu</h3>
-                                    <p class="text-primary font-semibold">Lead Data Engineer</p>
+                                    <h3 class="text-2xl font-bold mb-2">Project Orchestration with Airflow and Kubernetes</h3>
+                                    <p class="text-primary font-semibold">Lead Data Engineer · Blu</p>
                                 </div>
-                                <span class="text-gray-600 dark:text-gray-400 text-sm mt-2 md:mt-0">Jun 2024 - Sep 2024</span>
+                                <span class="text-gray-600 dark:text-gray-400 text-sm mt-2 md:mt-0">
+                                    Jun 2024 - Sep 2024
+                                </span>
                             </div>
+
                             <p class="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
-                                Fully implemented a data orchestration environment for clients using Apache Airflow and Kubernetes, optimizing DAG execution, and ensuring scalability. The orchestration system using Apache Airflow and Kubernetes, migrating workloads from EC2 to EKS and saving over $2,000/month.
+                                Implemented a scalable data orchestration environment with Apache Airflow and
+                                Kubernetes, migrating workloads from EC2 to EKS and reducing infrastructure costs
+                                by more than $2,000/month.
                             </p>
+
                             <div class="grid md:grid-cols-2 gap-4 mb-6">
                                 <div class="flex items-start gap-2 text-sm">
                                     <i class="fas fa-check-circle text-green-500 mt-1"></i>
@@ -267,28 +347,30 @@
                                 </div>
                                 <div class="flex items-start gap-2 text-sm">
                                     <i class="fas fa-check-circle text-green-500 mt-1"></i>
-                                    <span>Terraform as IAC</span>
+                                    <span>Terraform infrastructure as code</span>
                                 </div>
                                 <div class="flex items-start gap-2 text-sm">
                                     <i class="fas fa-check-circle text-green-500 mt-1"></i>
-                                    <span>DAG optimization</span>
+                                    <span>DAG design and optimization</span>
                                 </div>
                                 <div class="flex items-start gap-2 text-sm">
                                     <i class="fas fa-check-circle text-green-500 mt-1"></i>
-                                    <span>Kubernetes implementation</span>
+                                    <span>Kubernetes-based orchestration</span>
                                 </div>
                             </div>
+
                             <div class="flex flex-wrap gap-2">
-                                <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 rounded-lg text-xs">Apache Airflow</span>
-                                <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 rounded-lg text-xs">Kubernetes</span>
-                                <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 rounded-lg text-xs">Terraform</span>
-                                <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 rounded-lg text-xs">EKS</span>
+                                <span class="tech-tag">Apache Airflow</span>
+                                <span class="tech-tag">Kubernetes</span>
+                                <span class="tech-tag">Terraform</span>
+                                <span class="tech-tag">EKS</span>
+                                <span class="tech-tag">AWS</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Blu - Data Engineer -->
+                <!-- Blu Data Engineer -->
                 <div class="glass rounded-3xl p-8 card-hover">
                     <div class="flex flex-col md:flex-row gap-6">
                         <div class="flex-shrink-0">
@@ -296,49 +378,57 @@
                                 <i class="fas fa-cloud text-3xl text-primary"></i>
                             </div>
                         </div>
+
                         <div class="flex-1">
                             <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                                 <div>
                                     <h3 class="text-2xl font-bold mb-2">Data Engineer</h3>
                                     <p class="text-primary font-semibold">Blu</p>
                                 </div>
-                                <span class="text-gray-600 dark:text-gray-400 text-sm mt-2 md:mt-0">Dec 2023 - Sep 2024</span>
+                                <span class="text-gray-600 dark:text-gray-400 text-sm mt-2 md:mt-0">
+                                    Dec 2023 - Sep 2024
+                                </span>
                             </div>
+
                             <p class="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
-                                Led data engineering initiatives to modernize infrastructure and improve performance. Redesigned orchestration system migrating from EC2 to EKS, developed scalable PySpark jobs on EMR, and automated cloud provisioning using Terraform.
+                                Led data engineering initiatives focused on cloud infrastructure, orchestration and
+                                distributed processing. Developed scalable PySpark jobs on EMR and automated cloud
+                                provisioning with Terraform.
                             </p>
+
                             <div class="grid md:grid-cols-2 gap-4 mb-6">
                                 <div class="flex items-start gap-2 text-sm">
                                     <i class="fas fa-check-circle text-green-500 mt-1"></i>
-                                    <span>EC2 to EKS migration</span>
+                                    <span>Apache Airflow and data orchestration</span>
                                 </div>
                                 <div class="flex items-start gap-2 text-sm">
                                     <i class="fas fa-check-circle text-green-500 mt-1"></i>
-                                    <span>PySpark jobs on EMR</span>
+                                    <span>PySpark jobs on Amazon EMR</span>
                                 </div>
                                 <div class="flex items-start gap-2 text-sm">
                                     <i class="fas fa-check-circle text-green-500 mt-1"></i>
-                                    <span>SQL optimization & Redshift modeling</span>
+                                    <span>SQL optimization and Redshift modeling</span>
                                 </div>
                                 <div class="flex items-start gap-2 text-sm">
                                     <i class="fas fa-check-circle text-green-500 mt-1"></i>
-                                    <span>Terraform automation</span>
+                                    <span>Terraform and AWS infrastructure automation</span>
                                 </div>
                             </div>
+
                             <div class="flex flex-wrap gap-2">
-                                <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 rounded-lg text-xs">Apache Airflow</span>
-                                <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 rounded-lg text-xs">PySpark</span>
-                                <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 rounded-lg text-xs">EMR</span>
-                                <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 rounded-lg text-xs">Terraform</span>
-                                <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 rounded-lg text-xs">EKS</span>
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">PySpark</span>
+                                <span class="tech-tag">Airflow</span>
+                                <span class="tech-tag">EMR</span>
+                                <span class="tech-tag">Redshift</span>
+                                <span class="tech-tag">Terraform</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- More compact experiences -->
+                <!-- Earlier Experience -->
                 <div class="grid md:grid-cols-2 gap-6">
-                    <!-- Blu Intern -->
                     <div class="glass rounded-2xl p-6 card-hover">
                         <div class="flex items-center gap-4 mb-4">
                             <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
@@ -350,15 +440,19 @@
                                 <span class="text-xs text-gray-500">Apr 2023 - Dec 2023</span>
                             </div>
                         </div>
-                        <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">Built and managed data pipelines, configured Apache Airflow environments, and implemented Data Lake integrations with Zendesk and HubSpot APIs.</p>
+
+                        <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">
+                            Built and managed data pipelines, configured Apache Airflow environments and implemented
+                            Data Lake integrations with Zendesk and HubSpot APIs.
+                        </p>
+
                         <div class="flex flex-wrap gap-2">
-                            <span class="px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded text-xs">Python</span>
-                            <span class="px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded text-xs">Airflow</span>
-                            <span class="px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded text-xs">AWS</span>
+                            <span class="tech-tag small">Python</span>
+                            <span class="tech-tag small">Airflow</span>
+                            <span class="tech-tag small">AWS</span>
                         </div>
                     </div>
 
-                    <!-- Gurumê -->
                     <div class="glass rounded-2xl p-6 card-hover">
                         <div class="flex items-center gap-4 mb-4">
                             <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
@@ -370,11 +464,16 @@
                                 <span class="text-xs text-gray-500">Jun 2022 - Oct 2022</span>
                             </div>
                         </div>
-                        <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">Created predictive models for daily production using ML, reducing waste and increasing profit. Built dashboards and automated reports using Power BI.</p>
+
+                        <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">
+                            Created predictive models for daily production, built dashboards and automated reports
+                            using Power BI to support operational decisions.
+                        </p>
+
                         <div class="flex flex-wrap gap-2">
-                            <span class="px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded text-xs">Power BI</span>
-                            <span class="px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded text-xs">ML</span>
-                            <span class="px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded text-xs">Analytics</span>
+                            <span class="tech-tag small">Power BI</span>
+                            <span class="tech-tag small">Machine Learning</span>
+                            <span class="tech-tag small">Analytics</span>
                         </div>
                     </div>
                 </div>
@@ -382,290 +481,177 @@
         </div>
     </section>
 
-    <!-- Skills Section -->
+    <!-- SKILLS -->
     <section id="skills" class="py-20 px-4 bg-gray-50 dark:bg-dark-bg">
         <div class="container mx-auto max-w-7xl">
             <h2 class="text-4xl md:text-5xl font-bold text-center mb-4">
-                Technical <span class="gradient-text">Skills</span>
+                Data Engineering <span class="gradient-text">Stack</span>
             </h2>
             <div class="w-20 h-1 bg-gradient-to-r from-primary to-accent mx-auto mb-16"></div>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-                <!-- Programming Languages -->
+
                 <div class="glass rounded-2xl p-6">
                     <div class="flex items-center gap-3 mb-4">
-                        <i class="fas fa-code text-2xl text-primary"></i>
-                        <h3 class="text-xl font-bold">Languages</h3>
+                        <i class="fab fa-python text-2xl text-primary"></i>
+                        <h3 class="text-xl font-bold">Programming</h3>
                     </div>
                     <div class="space-y-2">
-                        <div class="flex items-center gap-2">
-                            <i class="fab fa-python text-primary"></i>
-                            <span class="text-sm">Python</span>
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <i class="fab fa-java text-primary"></i>
-                            <span class="text-sm">Java</span>
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <i class="fab fa-golang text-primary"></i>
-                            <span class="text-sm">Go</span>
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <i class="fab fa-js text-primary"></i>
-                            <span class="text-sm">JavaScript</span>
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <i class="fas fa-database text-primary"></i>
-                            <span class="text-sm">SQL</span>
-                        </div>
+                        <p class="skill-item"><i class="fab fa-python"></i> Python</p>
+                        <p class="skill-item"><i class="fas fa-database"></i> SQL</p>
+                        <p class="skill-item"><i class="fas fa-fire"></i> PySpark</p>
+                        <p class="skill-item"><i class="fas fa-table"></i> Pandas</p>
+                        <p class="skill-item"><i class="fab fa-java"></i> Java <span class="secondary-label">secondary</span></p>
                     </div>
                 </div>
 
-                <!-- Frameworks -->
                 <div class="glass rounded-2xl p-6">
                     <div class="flex items-center gap-3 mb-4">
-                        <i class="fas fa-layer-group text-2xl text-primary"></i>
-                        <h3 class="text-xl font-bold">Frameworks</h3>
+                        <i class="fas fa-sitemap text-2xl text-primary"></i>
+                        <h3 class="text-xl font-bold">Data Platform</h3>
                     </div>
                     <div class="space-y-2">
-                        <div class="flex items-center gap-2">
-                            <i class="fas fa-leaf text-primary"></i>
-                            <span class="text-sm">Spring Boot</span>
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <i class="fas fa-bolt text-primary"></i>
-                            <span class="text-sm">FastAPI</span>
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <i class="fas fa-flask text-primary"></i>
-                            <span class="text-sm">Flask</span>
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <i class="fab fa-node-js text-primary"></i>
-                            <span class="text-sm">Node.js</span>
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <i class="fas fa-fire text-primary"></i>
-                            <span class="text-sm">Django</span>
-                        </div>
+                        <p class="skill-item"><i class="fas fa-wind"></i> Apache Airflow</p>
+                        <p class="skill-item"><i class="fas fa-layer-group"></i> Databricks</p>
+                        <p class="skill-item"><i class="fas fa-database"></i> Data Lakes</p>
+                        <p class="skill-item"><i class="fas fa-layer-group"></i> Medallion Architecture</p>
+                        <p class="skill-item"><i class="fas fa-gears"></i> ETL / ELT</p>
                     </div>
                 </div>
 
-                <!-- Cloud & DevOps -->
                 <div class="glass rounded-2xl p-6">
                     <div class="flex items-center gap-3 mb-4">
                         <i class="fab fa-aws text-2xl text-primary"></i>
-                        <h3 class="text-xl font-bold">Cloud & DevOps</h3>
+                        <h3 class="text-xl font-bold">Cloud & Infra</h3>
                     </div>
                     <div class="space-y-2">
-                        <div class="flex items-center gap-2">
-                            <i class="fab fa-aws text-primary"></i>
-                            <span class="text-sm">AWS (S3, Glue, Redshift, EMR)</span>
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <i class="fab fa-docker text-primary"></i>
-                            <span class="text-sm">Docker</span>
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <i class="fas fa-dharmachakra text-primary"></i>
-                            <span class="text-sm">Kubernetes</span>
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <i class="fas fa-cube text-primary"></i>
-                            <span class="text-sm">Terraform</span>
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <i class="fas fa-infinity text-primary"></i>
-                            <span class="text-sm">Jenkins, GitLab CI/CD</span>
-                        </div>
+                        <p class="skill-item"><i class="fab fa-aws"></i> AWS</p>
+                        <p class="skill-item"><i class="fas fa-box"></i> S3</p>
+                        <p class="skill-item"><i class="fas fa-gears"></i> Glue</p>
+                        <p class="skill-item"><i class="fas fa-server"></i> EMR / EKS</p>
+                        <p class="skill-item"><i class="fas fa-cube"></i> Terraform</p>
                     </div>
                 </div>
 
-                <!-- Databases -->
                 <div class="glass rounded-2xl p-6">
                     <div class="flex items-center gap-3 mb-4">
                         <i class="fas fa-database text-2xl text-primary"></i>
-                        <h3 class="text-xl font-bold">Databases</h3>
+                        <h3 class="text-xl font-bold">Storage & Analytics</h3>
                     </div>
                     <div class="space-y-2">
-                        <div class="flex items-center gap-2">
-                            <i class="fas fa-elephant text-primary"></i>
-                            <span class="text-sm">PostgreSQL</span>
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <i class="fas fa-database text-primary"></i>
-                            <span class="text-sm">MySQL</span>
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <i class="fas fa-warehouse text-primary"></i>
-                            <span class="text-sm">Redshift</span>
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <i class="fas fa-server text-primary"></i>
-                            <span class="text-sm">SQL Server</span>
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <i class="fas fa-leaf text-primary"></i>
-                            <span class="text-sm">MongoDB</span>
-                        </div>
+                        <p class="skill-item"><i class="fas fa-elephant"></i> PostgreSQL</p>
+                        <p class="skill-item"><i class="fas fa-warehouse"></i> Redshift</p>
+                        <p class="skill-item"><i class="fas fa-database"></i> MySQL</p>
+                        <p class="skill-item"><i class="fas fa-chart-line"></i> Power BI</p>
+                        <p class="skill-item"><i class="fas fa-chart-bar"></i> Looker</p>
                     </div>
                 </div>
             </div>
 
-            <!-- All Technologies Grid -->
             <div class="glass rounded-3xl p-8">
-                <h3 class="text-2xl font-bold mb-6 text-center">All Technologies</h3>
+                <h3 class="text-2xl font-bold mb-6 text-center">Core Technologies</h3>
+
                 <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
-                    <div class="text-center p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-all card-hover">
-                        <i class="fab fa-python text-3xl text-primary mb-2"></i>
-                        <p class="text-sm">Python</p>
-                    </div>
-                    <div class="text-center p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-all card-hover">
-                        <i class="fab fa-java text-3xl text-primary mb-2"></i>
-                        <p class="text-sm">Java</p>
-                    </div>
-                    <div class="text-center p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-all card-hover">
-                        <i class="fab fa-golang text-3xl text-primary mb-2"></i>
-                        <p class="text-sm">Go</p>
-                    </div>
-                    <div class="text-center p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-all card-hover">
-                        <i class="fab fa-js text-3xl text-primary mb-2"></i>
-                        <p class="text-sm">JavaScript</p>
-                    </div>
-                    <div class="text-center p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-all card-hover">
-                        <i class="fas fa-bolt text-3xl text-primary mb-2"></i>
-                        <p class="text-sm">FastAPI</p>
-                    </div>
-                    <div class="text-center p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-all card-hover">
-                        <i class="fas fa-leaf text-3xl text-primary mb-2"></i>
-                        <p class="text-sm">Spring Boot</p>
-                    </div>
-                    <div class="text-center p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-all card-hover">
-                        <i class="fab fa-docker text-3xl text-primary mb-2"></i>
-                        <p class="text-sm">Docker</p>
-                    </div>
-                    <div class="text-center p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-all card-hover">
-                        <i class="fas fa-dharmachakra text-3xl text-primary mb-2"></i>
-                        <p class="text-sm">Kubernetes</p>
-                    </div>
-                    <div class="text-center p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-all card-hover">
-                        <i class="fab fa-aws text-3xl text-primary mb-2"></i>
-                        <p class="text-sm">AWS</p>
-                    </div>
-                    <div class="text-center p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-all card-hover">
-                        <i class="fas fa-database text-3xl text-primary mb-2"></i>
-                        <p class="text-sm">PostgreSQL</p>
-                    </div>
-                    <div class="text-center p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-all card-hover">
-                        <i class="fas fa-warehouse text-3xl text-primary mb-2"></i>
-                        <p class="text-sm">Redshift</p>
-                    </div>
-                    <div class="text-center p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-all card-hover">
-                        <i class="fas fa-fire text-3xl text-primary mb-2"></i>
-                        <p class="text-sm">PySpark</p>
-                    </div>
-                    <div class="text-center p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-all card-hover">
-                        <i class="fas fa-wind text-3xl text-primary mb-2"></i>
-                        <p class="text-sm">Apache Airflow</p>
-                    </div>
-                    <div class="text-center p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-all card-hover">
-                        <i class="fas fa-cube text-3xl text-primary mb-2"></i>
-                        <p class="text-sm">Terraform</p>
-                    </div>
-                    <div class="text-center p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-all card-hover">
-                        <i class="fab fa-git-alt text-3xl text-primary mb-2"></i>
-                        <p class="text-sm">Git</p>
-                    </div>
-                    <div class="text-center p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-all card-hover">
-                        <i class="fas fa-chart-line text-3xl text-primary mb-2"></i>
-                        <p class="text-sm">Power BI</p>
-                    </div>
-                    <div class="text-center p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-all card-hover">
-                        <i class="fas fa-chart-bar text-3xl text-primary mb-2"></i>
-                        <p class="text-sm">Looker</p>
-                    </div>
+                    <div class="tech-card"><i class="fab fa-python"></i><p>Python</p></div>
+                    <div class="tech-card"><i class="fas fa-database"></i><p>SQL</p></div>
+                    <div class="tech-card"><i class="fas fa-fire"></i><p>PySpark</p></div>
+                    <div class="tech-card"><i class="fas fa-table"></i><p>Pandas</p></div>
+                    <div class="tech-card"><i class="fas fa-wind"></i><p>Airflow</p></div>
+                    <div class="tech-card"><i class="fas fa-layer-group"></i><p>Databricks</p></div>
+                    <div class="tech-card"><i class="fab fa-aws"></i><p>AWS</p></div>
+                    <div class="tech-card"><i class="fas fa-box"></i><p>S3</p></div>
+                    <div class="tech-card"><i class="fas fa-gears"></i><p>Glue</p></div>
+                    <div class="tech-card"><i class="fas fa-warehouse"></i><p>Redshift</p></div>
+                    <div class="tech-card"><i class="fas fa-server"></i><p>EMR</p></div>
+                    <div class="tech-card"><i class="fas fa-cube"></i><p>Terraform</p></div>
+                    <div class="tech-card"><i class="fab fa-docker"></i><p>Docker</p></div>
+                    <div class="tech-card"><i class="fas fa-dharmachakra"></i><p>Kubernetes</p></div>
+                    <div class="tech-card"><i class="fas fa-chart-line"></i><p>Power BI</p></div>
+                    <div class="tech-card"><i class="fab fa-java"></i><p>Java</p></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Technical Differentials Section -->
+    <!-- DIFFERENTIALS -->
     <section id="differentials" class="py-20 px-4 bg-white dark:bg-dark-card">
         <div class="container mx-auto max-w-7xl">
             <h2 class="text-4xl md:text-5xl font-bold text-center mb-4">
-                Technical <span class="gradient-text">Differentials</span>
+                Data Engineering <span class="gradient-text">Differentials</span>
             </h2>
             <div class="w-20 h-1 bg-gradient-to-r from-primary to-accent mx-auto mb-16"></div>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <div class="glass rounded-2xl p-8 card-hover">
                     <div class="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
-                        <i class="fas fa-layer-group text-2xl text-primary"></i>
+                        <i class="fas fa-code text-2xl text-primary"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">Modern Architecture</h3>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">Expert in Hexagonal Architecture, DDD, and Clean Code principles. Building modular, maintainable systems with Java Spring Boot and modern Python frameworks.</p>
+                    <h3 class="text-xl font-bold mb-3">Python-First Engineering</h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                        Strong Python background applied to automation, APIs, data processing and engineering
+                        workflows, with a focus on readable and maintainable code.
+                    </p>
                 </div>
 
                 <div class="glass rounded-2xl p-8 card-hover">
                     <div class="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
                         <i class="fas fa-database text-2xl text-primary"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">Data Engineering Excellence</h3>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">5+ years building scalable data pipelines, optimizing Data Lakes, and implementing Medallion Architecture for enterprise-level data infrastructure.</p>
+                    <h3 class="text-xl font-bold mb-3">Scalable Data Pipelines</h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                        Experience building and optimizing pipelines with Python, PySpark, Airflow and AWS,
+                        from ingestion and transformation to reliable delivery.
+                    </p>
                 </div>
 
                 <div class="glass rounded-2xl p-8 card-hover">
                     <div class="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
                         <i class="fab fa-aws text-2xl text-primary"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">AWS Cloud Mastery</h3>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">Deep expertise in AWS services (S3, Glue, Redshift, EMR, EKS) with proven cost optimization strategies and infrastructure automation using Terraform.</p>
+                    <h3 class="text-xl font-bold mb-3">Cloud Data Engineering</h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                        Hands-on experience with S3, Glue, Redshift, EMR and EKS, combined with infrastructure
+                        automation using Terraform.
+                    </p>
                 </div>
 
                 <div class="glass rounded-2xl p-8 card-hover">
                     <div class="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
-                        <i class="fas fa-infinity text-2xl text-primary"></i>
+                        <i class="fas fa-layer-group text-2xl text-primary"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">DevOps & CI/CD</h3>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">Hands-on experience with Docker, Kubernetes, Jenkins, GitLab CI/CD, and Harness. Automating deployments and ensuring high availability systems.</p>
-                </div>
-
-                <div class="glass rounded-2xl p-8 card-hover">
-                    <div class="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
-                        <i class="fas fa-chart-line text-2xl text-primary"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Analytics & BI</h3>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">Experience with Looker, Power BI, Metabase, and Qlik. Creating dashboards and predictive models that drive business decisions.</p>
+                    <h3 class="text-xl font-bold mb-3">Data Architecture</h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                        Experience with Data Lakes, Medallion Architecture, distributed processing and data
+                        platform optimization.
+                    </p>
                 </div>
 
                 <div class="glass rounded-2xl p-8 card-hover">
                     <div class="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
                         <i class="fas fa-rocket text-2xl text-primary"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">Performance Optimization</h3>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">Proven track record of reducing processing times, optimizing queries, and implementing cost-saving strategies in cloud environments.</p>
+                    <h3 class="text-xl font-bold mb-3">Performance & Cost</h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                        Proven experience optimizing queries, pipeline execution and cloud infrastructure to
+                        reduce processing time and operational costs.
+                    </p>
                 </div>
 
                 <div class="glass rounded-2xl p-8 card-hover">
                     <div class="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
-                        <i class="fas fa-users text-2xl text-primary"></i>
+                        <i class="fas fa-code-branch text-2xl text-primary"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">Team Collaboration</h3>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">Strong communication skills, mentoring experience, and familiarity with Scrum and Kanban methodologies. Building collaborative environments.</p>
-                </div>
-
-                <div class="glass rounded-2xl p-8 card-hover">
-                    <div class="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
-                        <i class="fas fa-language text-2xl text-primary"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">English Proficiency</h3>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">Full professional proficiency in English, enabling effective communication in international teams and technical documentation.</p>
+                    <h3 class="text-xl font-bold mb-3">Automation & Reliability</h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                        Experience with CI/CD, orchestration, infrastructure as code and containerized
+                        environments for dependable data workloads.
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Education & Certifications Section -->
+    <!-- EDUCATION -->
     <section id="education" class="py-20 px-4 bg-gray-50 dark:bg-dark-bg">
         <div class="container mx-auto max-w-7xl">
             <h2 class="text-4xl md:text-5xl font-bold text-center mb-4">
@@ -674,7 +660,6 @@
             <div class="w-20 h-1 bg-gradient-to-r from-primary to-accent mx-auto mb-16"></div>
 
             <div class="grid md:grid-cols-2 gap-8">
-                <!-- Education -->
                 <div class="glass rounded-3xl p-8">
                     <div class="flex items-center gap-4 mb-6">
                         <div class="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center">
@@ -685,17 +670,15 @@
                             <p class="text-sm text-gray-600 dark:text-gray-400">Academic Background</p>
                         </div>
                     </div>
-                    <div class="space-y-6">
-                        <div class="border-l-4 border-primary pl-4">
-                            <h4 class="text-lg font-bold mb-2">Data Science & Technological Behavior Analysis</h4>
-                            <p class="text-primary font-medium">UniCesumar</p>
-                            <p class="text-sm text-gray-600 dark:text-gray-400">Higher Technological Course</p>
-                            <p class="text-xs text-gray-500 mt-1">February 2022 - January 2025</p>
-                        </div>
+
+                    <div class="border-l-4 border-primary pl-4">
+                        <h4 class="text-lg font-bold mb-2">Data Science & Technological Behavior Analysis</h4>
+                        <p class="text-primary font-medium">UniCesumar</p>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">Higher Technological Course</p>
+                        <p class="text-xs text-gray-500 mt-1">February 2022 - January 2025</p>
                     </div>
                 </div>
 
-                <!-- Certifications -->
                 <div class="glass rounded-3xl p-8">
                     <div class="flex items-center gap-4 mb-6">
                         <div class="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center">
@@ -706,6 +689,7 @@
                             <p class="text-sm text-gray-600 dark:text-gray-400">Professional Credentials</p>
                         </div>
                     </div>
+
                     <div class="space-y-3">
                         <div class="flex items-start gap-3 p-3 rounded-lg hover:bg-white/5 transition-all">
                             <i class="fab fa-aws text-primary mt-1"></i>
@@ -714,6 +698,7 @@
                                 <p class="text-xs text-gray-500">Amazon Web Services</p>
                             </div>
                         </div>
+
                         <div class="flex items-start gap-3 p-3 rounded-lg hover:bg-white/5 transition-all">
                             <i class="fab fa-aws text-primary mt-1"></i>
                             <div>
@@ -721,6 +706,7 @@
                                 <p class="text-xs text-gray-500">Amazon Web Services</p>
                             </div>
                         </div>
+
                         <div class="flex items-start gap-3 p-3 rounded-lg hover:bg-white/5 transition-all">
                             <i class="fab fa-aws text-primary mt-1"></i>
                             <div>
@@ -734,20 +720,22 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- CONTACT -->
     <section id="contact" class="py-20 px-4 bg-white dark:bg-dark-card">
         <div class="container mx-auto max-w-7xl">
             <h2 class="text-4xl md:text-5xl font-bold text-center mb-4">
-                Get in <span class="gradient-text">Touch</span>
+                Let's <span class="gradient-text">Connect</span>
             </h2>
             <div class="w-20 h-1 bg-gradient-to-r from-primary to-accent mx-auto mb-8"></div>
+
             <p class="text-center text-gray-600 dark:text-gray-400 text-lg mb-16 max-w-2xl mx-auto">
-                Let's connect and discuss how we can work together to create amazing solutions. I'm always open to new opportunities and collaborations.
+                Open to Data Engineering opportunities, technical challenges and projects involving
+                Python, data platforms and cloud technologies.
             </p>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-                <!-- LinkedIn -->
-                <a href="https://www.linkedin.com/in/fernandespy" target="_blank" class="glass rounded-2xl p-6 card-hover flex flex-col items-center text-center group">
+            <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+                <a href="https://www.linkedin.com/in/fernandespy" target="_blank" rel="noopener noreferrer"
+                    class="glass rounded-2xl p-6 card-hover flex flex-col items-center text-center group">
                     <div class="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                         <i class="fab fa-linkedin text-3xl text-primary"></i>
                     </div>
@@ -755,52 +743,46 @@
                     <p class="text-sm text-gray-600 dark:text-gray-400">Professional Network</p>
                 </a>
 
-                <!-- GitHub -->
-                <a href="https://github.com/fernandespy" target="_blank" class="glass rounded-2xl p-6 card-hover flex flex-col items-center text-center group">
+                <a href="https://github.com/fernandespy" target="_blank" rel="noopener noreferrer"
+                    class="glass rounded-2xl p-6 card-hover flex flex-col items-center text-center group">
                     <div class="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                         <i class="fab fa-github text-3xl text-primary"></i>
                     </div>
                     <h3 class="text-lg font-bold mb-2">GitHub</h3>
-                    <p class="text-sm text-gray-600 dark:text-gray-400">Code & Projects</p>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">Code & Data Projects</p>
                 </a>
 
-                <!-- Email -->
-                <a href="mailto:brunofernandes.job@gmail.com" class="glass rounded-2xl p-6 card-hover flex flex-col items-center text-center group">
+                <a href="mailto:brunofernandes.job@gmail.com"
+                    class="glass rounded-2xl p-6 card-hover flex flex-col items-center text-center group">
                     <div class="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                         <i class="fas fa-envelope text-3xl text-primary"></i>
                     </div>
                     <h3 class="text-lg font-bold mb-2">Email</h3>
                     <p class="text-sm text-gray-600 dark:text-gray-400">Direct Contact</p>
                 </a>
-
             </div>
         </div>
     </section>
 
-    <button
-        id="back-to-top"
-        aria-label="Back to top"
-        class="fixed bottom-6 right-6 z-50 p-4 rounded-full glass
-            opacity-0 pointer-events-none
-            transition-all duration-300
-            hover:scale-110">
+    <!-- Back to top -->
+    <button id="back-to-top" aria-label="Back to top"
+        class="fixed bottom-6 right-6 z-50 p-4 rounded-full glass opacity-0 pointer-events-none transition-all duration-300 hover:scale-110">
         <i class="fas fa-arrow-up text-xl text-primary"></i>
     </button>
 
-
-    <!-- Footer -->
+    <!-- FOOTER -->
     <footer class="py-8 px-4 bg-gray-50 dark:bg-dark-bg border-t border-gray-200 dark:border-gray-800">
         <div class="container mx-auto max-w-7xl text-center">
-            <div class="flex items-center justify-center gap-2 text-gray-600 dark:text-gray-400">
+            <div class="flex flex-wrap items-center justify-center gap-2 text-gray-600 dark:text-gray-400">
                 <i class="fas fa-code text-primary"></i>
-                <span>Crafted with</span>
-                <i class="fas fa-heart text-red-500 animate-pulse"></i>
-                <span>using HTML, Tailwind CSS, and JavaScript</span>
+                <span>Built with HTML, Tailwind CSS and JavaScript</span>
             </div>
-            <p class="text-sm text-gray-500 dark:text-gray-500 mt-2">© 2025 Bruno Fernandes. All rights reserved.</p>
+            <p class="text-sm text-gray-500 dark:text-gray-500 mt-2">
+                © 2026 Bruno Fernandes. All rights reserved.
+            </p>
         </div>
     </footer>
 
-        <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
