@@ -91,3 +91,69 @@ html {
     opacity: 1;
     pointer-events: auto;
 }
+
+.skill-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
+.skill-item i {
+    width: 1rem;
+    color: #DC2626;
+}
+
+.secondary-label {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    opacity: 0.65;
+    margin-left: 0.15rem;
+}
+
+.tech-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.75rem;
+    border-radius: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    background: rgba(220, 38, 38, 0.10);
+    color: #DC2626;
+}
+
+.tech-tag.small {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.7rem;
+}
+
+.tech-card {
+    text-align: center;
+    padding: 1rem;
+    border-radius: 0.75rem;
+    background: rgba(255, 255, 255, 0.03);
+    transition: all 0.25s ease;
+}
+
+.tech-card:hover {
+    transform: translateY(-4px);
+    background: rgba(220, 38, 38, 0.08);
+}
+
+.tech-card i {
+    font-size: 1.75rem;
+    color: #DC2626;
+    margin-bottom: 0.5rem;
+}
+
+.tech-card p {
+    font-size: 0.8rem;
+}
+
+@media (max-width: 768px) {
+    .scroll-indicator {
+        display: none;
+    }
+}
