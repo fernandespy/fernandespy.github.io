@@ -1,112 +1,102 @@
-tailwind.config = {
-    darkMode: "class",
-    theme: {
-        extend: {
-            colors: {
-                primary: "#DC2626",
-                secondary: "#991B1B",
-                accent: "#EF4444",
-                dark: {
-                    bg: "#0F0F0F",
-                    card: "#1A1A1A",
-                    hover: "#262626",
-                },
-            },
-            animation: {
-                "fade-in-up": "fadeInUp 0.6s ease-out",
-                "fade-in-left": "fadeInLeft 0.6s ease-out",
-                "fade-in-right": "fadeInRight 0.6s ease-out",
-                float: "float 3s ease-in-out infinite",
-                glow: "glow 2s ease-in-out infinite alternate",
-                "pulse-slow": "pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite",
-            },
-            keyframes: {
-                fadeInUp: {
-                    "0%": { opacity: "0", transform: "translateY(20px)" },
-                    "100%": { opacity: "1", transform: "translateY(0)" },
-                },
-                fadeInLeft: {
-                    "0%": { opacity: "0", transform: "translateX(-20px)" },
-                    "100%": { opacity: "1", transform: "translateX(0)" },
-                },
-                fadeInRight: {
-                    "0%": { opacity: "0", transform: "translateX(20px)" },
-                    "100%": { opacity: "1", transform: "translateX(0)" },
-                },
-                float: {
-                    "0%, 100%": { transform: "translateY(0)" },
-                    "50%": { transform: "translateY(-20px)" },
-                },
-                glow: {
-                    "0%": { boxShadow: "0 0 5px rgba(220, 38, 38, 0.5)" },
-                    "100%": { boxShadow: "0 0 20px rgba(220, 38, 38, 0.8)" },
-                },
-            },
-        },
-    },
-};
-
-// Carregar tema antes do render (evita flash)
+// Theme
 const savedTheme = localStorage.getItem("theme") || "light";
-if (savedTheme === "dark") {
-    document.documentElement.classList.add("dark");
-}
+if (savedTheme === "dark") document.documentElement.classList.add("dark");
 
-// Theme Toggle
 const themeToggle = document.getElementById("theme-toggle");
 const html = document.documentElement;
-
-themeToggle.addEventListener("click", () => {
+if (themeToggle) themeToggle.addEventListener("click", () => {
     html.classList.toggle("dark");
-    localStorage.setItem(
-        "theme",
-        html.classList.contains("dark") ? "dark" : "light"
-    );
+    localStorage.setItem("theme", html.classList.contains("dark") ? "dark" : "light");
 });
 
-// Scroll Indicator
+// Scroll indicator
 const sections = document.querySelectorAll("section[id]");
 const scrollDots = document.querySelectorAll(".scroll-dot");
-
-window.addEventListener("scroll", () => {
+function updateActiveSection() {
     let current = "";
-    sections.forEach((section) => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (pageYOffset >= sectionTop - 200) {
-            current = section.getAttribute("id");
-        }
+    sections.forEach(section => {
+        if (window.scrollY >= section.offsetTop - 200) current = section.id;
     });
+    scrollDots.forEach(dot => dot.classList.toggle("active", dot.dataset.section === current));
+}
+window.addEventListener("scroll", updateActiveSection, { passive: true });
 
-    scrollDots.forEach((dot) => {
-        dot.classList.remove("active");
-        if (dot.getAttribute("data-section") === current) {
-            dot.classList.add("active");
-        }
-    });
-});
+scrollDots.forEach(dot => dot.addEventListener("click", () => {
+    const section = document.getElementById(dot.dataset.section);
+    if (section) section.scrollIntoView({ behavior: "smooth" });
+}));
 
-// Smooth scroll on dot click
-scrollDots.forEach((dot) => {
-    dot.addEventListener("click", () => {
-        const section = document.getElementById(dot.getAttribute("data-section"));
-        section.scrollIntoView({ behavior: "smooth" });
-    });
-});
-
+// Back to top
 const backToTopButton = document.getElementById("back-to-top");
+if (backToTopButton) {
+    window.addEventListener("scroll", () => {
+        backToTopButton.classList.toggle("show", window.scrollY > window.innerHeight * 0.6);
+    }, { passive: true });
+    backToTopButton.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+}
 
-window.addEventListener("scroll", () => {
-    if (window.scrollY > window.innerHeight * 0.6) {
-        backToTopButton.classList.add("show");
-    } else {
-        backToTopButton.classList.remove("show");
+// GitHub projects
+const GITHUB_USERNAME = "fernandespy";
+const GITHUB_API_URL = `https://api.github.com/users/${GITHUB_USERNAME}/repos?per_page=100&sort=pushed&direction=desc`;
+
+function escapeHtml(value) {
+    return String(value ?? "").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#039;");
+}
+
+function formatUpdatedDate(value) {
+    if (!value) return "";
+    return new Intl.DateTimeFormat("en-US", { month: "short", year: "numeric" }).format(new Date(value));
+}
+
+function languageIcon(language) {
+    return ({
+        JavaScript: "fab fa-js-square", TypeScript: "fab fa-js-square", Python: "fab fa-python",
+        Java: "fab fa-java", Go: "fas fa-code", HTML: "fab fa-html5", CSS: "fab fa-css3-alt", PHP: "fab fa-php"
+    })[language] || "fas fa-code";
+}
+
+function renderProjects(repositories) {
+    const grid = document.getElementById("projects-grid");
+    if (!grid) return;
+    if (!repositories.length) {
+        grid.innerHTML = `<div class="glass rounded-2xl p-8 md:col-span-2 lg:col-span-3 text-center"><i class="fab fa-github text-3xl text-primary mb-4"></i><p class="text-gray-600 dark:text-gray-400">No portfolio projects found yet.</p></div>`;
+        return;
     }
-});
+    grid.innerHTML = repositories.map(repo => {
+        const topics = (repo.topics || []).slice(0, 4);
+        const tags = topics.length ? topics.map(t => `<span class="tech-tag small">${escapeHtml(t)}</span>`).join("") : `<span class="tech-tag small">${escapeHtml(repo.language || "Software")}</span>`;
+        return `<article class="glass rounded-2xl p-7 card-hover project-card h-full flex flex-col">
+            <div class="flex items-start justify-between gap-4 mb-5">
+                <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center"><i class="fab fa-github text-2xl text-primary"></i></div>
+                <a href="${escapeHtml(repo.html_url)}" target="_blank" rel="noopener noreferrer" aria-label="Open ${escapeHtml(repo.name)} on GitHub" class="text-gray-500 hover:text-primary transition-colors"><i class="fas fa-arrow-up-right-from-square"></i></a>
+            </div>
+            <h3 class="text-xl font-bold mb-3">${escapeHtml(repo.name)}</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed mb-5 flex-grow">${escapeHtml(repo.description || "Software project by Bruno Fernandes.")}</p>
+            <div class="flex flex-wrap gap-2 mb-5">${tags}</div>
+            <div class="flex items-center justify-between text-xs text-gray-500 dark:text-gray-500 pt-4 border-t border-gray-200/60 dark:border-gray-700/60">
+                <span class="flex items-center gap-2"><i class="${languageIcon(repo.language)} text-primary"></i>${escapeHtml(repo.language || "Software")}</span>
+                <span>Updated ${formatUpdatedDate(repo.pushed_at)}</span>
+            </div>
+        </article>`;
+    }).join("");
+}
 
-backToTopButton.addEventListener("click", () => {
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth",
-    });
-});
+async function loadGitHubProjects() {
+    const grid = document.getElementById("projects-grid");
+    if (!grid) return;
+    try {
+        const response = await fetch(GITHUB_API_URL, { headers: { Accept: "application/vnd.github+json" } });
+        if (!response.ok) throw new Error(`GitHub API returned ${response.status}`);
+        const repositories = await response.json();
+        const projects = repositories.filter(repo => !repo.fork)
+            .filter(repo => (repo.topics || []).includes("portfolio"))
+            .sort((a,b) => new Date(b.pushed_at) - new Date(a.pushed_at))
+            .slice(0, 6);
+        renderProjects(projects);
+    } catch (error) {
+        console.error("Unable to load GitHub projects:", error);
+        grid.innerHTML = `<div class="glass rounded-2xl p-8 md:col-span-2 lg:col-span-3 text-center"><i class="fab fa-github text-3xl text-primary mb-4"></i><p class="font-semibold mb-2">Projects are temporarily unavailable.</p><p class="text-sm text-gray-600 dark:text-gray-400">Visit my GitHub profile to explore the latest repositories.</p></div>`;
+    }
+}
+
+loadGitHubProjects();
