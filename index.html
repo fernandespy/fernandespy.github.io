@@ -1197,19 +1197,138 @@
             Featured <span class="gradient-text">Projects</span>
         </h2>
         <p class="text-center text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-4">
-            A selection of projects, experiments and applications I'm currently building.
+            A selection of projects, experiments and applications I'm building.
         </p>
         <div class="w-20 h-1 bg-gradient-to-r from-primary to-accent mx-auto mb-12"></div>
 
+        <!-- Static cards are rendered directly in HTML. JavaScript only refreshes them when GitHub API is available. -->
         <div id="projects-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" aria-live="polite">
-            <div class="glass rounded-2xl p-8 md:col-span-2 lg:col-span-3 text-center">
-                <i class="fab fa-github text-3xl text-primary mb-4"></i>
-                <p class="text-gray-600 dark:text-gray-400">Loading projects...</p>
-            </div>
+
+            <article class="glass rounded-2xl p-7 card-hover project-card h-full flex flex-col">
+                <div class="flex items-start justify-between gap-4 mb-5">
+                    <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+                        <i class="fab fa-github text-2xl text-primary"></i>
+                    </div>
+                    <a href="https://github.com/fernandespy/agenda-django" target="_blank" rel="noopener noreferrer" aria-label="Open agenda-django on GitHub" class="text-gray-500 hover:text-primary transition-colors">
+                        <i class="fas fa-arrow-up-right-from-square"></i>
+                    </a>
+                </div>
+                <h3 class="text-xl font-bold mb-3">agenda-django</h3>
+                <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed mb-5 flex-grow">
+                    Django scheduling application for managing events and appointments through a backend web application.
+                </p>
+                <div class="flex flex-wrap gap-2 mb-5">
+                    <span class="tech-tag small">Python</span>
+                    <span class="tech-tag small">Django</span>
+                    <span class="tech-tag small">REST</span>
+                </div>
+                <div class="flex items-center justify-between text-xs text-gray-500 dark:text-gray-500 pt-4 border-t border-gray-200/60 dark:border-gray-700/60">
+                    <span class="flex items-center gap-2"><i class="fab fa-python text-primary"></i>Python</span>
+                    <span>GitHub project</span>
+                </div>
+            </article>
+
+            <article class="glass rounded-2xl p-7 card-hover project-card h-full flex flex-col">
+                <div class="flex items-start justify-between gap-4 mb-5">
+                    <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+                        <i class="fab fa-github text-2xl text-primary"></i>
+                    </div>
+                    <a href="https://github.com/fernandespy/go-fruit-api" target="_blank" rel="noopener noreferrer" aria-label="Open go-fruit-api on GitHub" class="text-gray-500 hover:text-primary transition-colors">
+                        <i class="fas fa-arrow-up-right-from-square"></i>
+                    </a>
+                </div>
+                <h3 class="text-xl font-bold mb-3">go-fruit-api</h3>
+                <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed mb-5 flex-grow">
+                    Go REST API built with Gin, GORM and SQLite, exploring backend APIs, persistence and data ingestion.
+                </p>
+                <div class="flex flex-wrap gap-2 mb-5">
+                    <span class="tech-tag small">Go</span>
+                    <span class="tech-tag small">Gin</span>
+                    <span class="tech-tag small">GORM</span>
+                    <span class="tech-tag small">SQLite</span>
+                </div>
+                <div class="flex items-center justify-between text-xs text-gray-500 dark:text-gray-500 pt-4 border-t border-gray-200/60 dark:border-gray-700/60">
+                    <span class="flex items-center gap-2"><i class="fas fa-code text-primary"></i>Go</span>
+                    <span>GitHub project</span>
+                </div>
+            </article>
+
+            <article class="glass rounded-2xl p-7 card-hover project-card h-full flex flex-col">
+                <div class="flex items-start justify-between gap-4 mb-5">
+                    <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+                        <i class="fab fa-github text-2xl text-primary"></i>
+                    </div>
+                    <a href="https://github.com/fernandespy/Projeto-Escalas" target="_blank" rel="noopener noreferrer" aria-label="Open Projeto-Escalas on GitHub" class="text-gray-500 hover:text-primary transition-colors">
+                        <i class="fas fa-arrow-up-right-from-square"></i>
+                    </a>
+                </div>
+                <h3 class="text-xl font-bold mb-3">Projeto-Escalas</h3>
+                <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed mb-5 flex-grow">
+                    Python project focused on scheduling, automation and workflow experimentation.
+                </p>
+                <div class="flex flex-wrap gap-2 mb-5">
+                    <span class="tech-tag small">Python</span>
+                    <span class="tech-tag small">Automation</span>
+                </div>
+                <div class="flex items-center justify-between text-xs text-gray-500 dark:text-gray-500 pt-4 border-t border-gray-200/60 dark:border-gray-700/60">
+                    <span class="flex items-center gap-2"><i class="fab fa-python text-primary"></i>Python</span>
+                    <span>GitHub project</span>
+                </div>
+            </article>
+
+            <article class="glass rounded-2xl p-7 card-hover project-card h-full flex flex-col">
+                <div class="flex items-start justify-between gap-4 mb-5">
+                    <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+                        <i class="fab fa-github text-2xl text-primary"></i>
+                    </div>
+                    <a href="https://github.com/fernandespy/Sistema-de-Recomenda-o" target="_blank" rel="noopener noreferrer" aria-label="Open Sistema-de-Recomenda-o on GitHub" class="text-gray-500 hover:text-primary transition-colors">
+                        <i class="fas fa-arrow-up-right-from-square"></i>
+                    </a>
+                </div>
+                <h3 class="text-xl font-bold mb-3">Sistema-de-Recomenda-o</h3>
+                <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed mb-5 flex-grow">
+                    Recommendation system exploring k-nearest neighbors and Minkowski distance for similarity-based recommendations.
+                </p>
+                <div class="flex flex-wrap gap-2 mb-5">
+                    <span class="tech-tag small">Python</span>
+                    <span class="tech-tag small">Machine Learning</span>
+                    <span class="tech-tag small">kNN</span>
+                </div>
+                <div class="flex items-center justify-between text-xs text-gray-500 dark:text-gray-500 pt-4 border-t border-gray-200/60 dark:border-gray-700/60">
+                    <span class="flex items-center gap-2"><i class="fab fa-python text-primary"></i>Python</span>
+                    <span>GitHub project</span>
+                </div>
+            </article>
+
+            <article class="glass rounded-2xl p-7 card-hover project-card h-full flex flex-col">
+                <div class="flex items-start justify-between gap-4 mb-5">
+                    <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+                        <i class="fab fa-github text-2xl text-primary"></i>
+                    </div>
+                    <a href="https://github.com/fernandespy" target="_blank" rel="noopener noreferrer" aria-label="Open Bruno's GitHub" class="text-gray-500 hover:text-primary transition-colors">
+                        <i class="fas fa-arrow-up-right-from-square"></i>
+                    </a>
+                </div>
+                <h3 class="text-xl font-bold mb-3">More on GitHub</h3>
+                <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed mb-5 flex-grow">
+                    More backend, software engineering, data and AI experiments are available in my public repositories.
+                </p>
+                <div class="flex flex-wrap gap-2 mb-5">
+                    <span class="tech-tag small">Java</span>
+                    <span class="tech-tag small">Python</span>
+                    <span class="tech-tag small">Go</span>
+                    <span class="tech-tag small">AI</span>
+                </div>
+                <div class="flex items-center justify-between text-xs text-gray-500 dark:text-gray-500 pt-4 border-t border-gray-200/60 dark:border-gray-700/60">
+                    <span class="flex items-center gap-2"><i class="fab fa-github text-primary"></i>GitHub</span>
+                    <span>30 public repositories</span>
+                </div>
+            </article>
+
         </div>
 
         <div class="text-center mt-10">
-            <a href="https://github.com/fernandespy?tab=repositories" target="_blank" rel="noopener noreferrer"
+            <a href="https://github.com/fernandespy" target="_blank" rel="noopener noreferrer"
                class="inline-flex items-center gap-2 px-6 py-3 border-2 border-primary text-primary rounded-xl font-semibold hover:bg-primary/10 transition-all duration-300">
                 <i class="fab fa-github"></i><span>View all repositories</span><i class="fas fa-arrow-right"></i>
             </a>
